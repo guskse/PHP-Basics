@@ -10,6 +10,13 @@
 */
 echo '<h3>Sum Of An Array</h3>';
 
+$numbers = [1, 2, 3, 4, 5];
+$amount = count($numbers);
+
+$sum = array_sum($numbers);
+echo 'The sum of the ' . $amount . ' numbers is : ' . $sum;
+
+
 /*
   Challenge 2: Colors array
 
@@ -25,6 +32,15 @@ echo '<h3>Colors Array</h3>';
 
 $colors = ['red', 'blue', 'green', 'yellow'];
 
+$colors = array_reverse($colors);
+array_push($colors, "purple");
+$colors[] = "orange";
+array_splice($colors, 1, 1, "pink");
+array_pop($colors);
+
+var_dump($colors);
+
+
 /*
   Challenge 3: Job listings array
 
@@ -35,3 +51,49 @@ $colors = ['red', 'blue', 'green', 'yellow'];
 */
 
 echo '<h3>Job Listings</h3>';
+
+$listings = [
+  [
+    'id' => 1,
+    'job_title' => 'PHP Developer',
+    'company' => 'ABC Company',
+    'contact_email' => 'php@email.com',
+    'contact_phone' => '1234-5678',
+    'skills' => ['PHP', 'MySQL', 'JavaScript']
+  ],
+  [
+    'id' => 2,
+    'job_title' => 'Laravel Senior Developer',
+    'company' => 'ABC Company',
+    'contact_email' => 'laravel@email.com',
+    'contact_phone' => '1234-5678',
+    'skills' => ['Laravel', 'MySQL', 'JavaScript']
+  ],
+  [
+    'id' => 3,
+    'job_title' => 'React Front End Developer',
+    'company' => 'ABC Company',
+    'contact_email' => 'react@email.com',
+    'contact_phone' => '1234-5678',
+    'skills' => ['React', 'MySQL', 'JavaScript']
+  ]
+];
+
+array_push($listings,   [
+  'id' => 4,
+  'job_title' => 'Java Backend End Developer',
+  'company' => 'ABC Company',
+  'contact_email' => 'java@email.com',
+  'contact_phone' => '1234-5678',
+  'skills' => ['Java', 'MySQL', 'JavaScript']
+]);
+
+
+print_r($listings[1]['job_title']);
+
+echo "<br />";
+
+echo $listings[3]['skills'][0];
+
+
+?>

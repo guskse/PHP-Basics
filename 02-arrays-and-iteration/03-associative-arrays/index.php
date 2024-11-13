@@ -1,5 +1,30 @@
 <?php
 $output = null;
+
+//ASSOCIATIVE ARRAY (SIMILAR TO DICTIONARIES AND OBJECTS IN JAVASCRIPT)
+
+$user = [
+    'name' => 'John',
+    'email' => 'john@gmail.com',
+    'password' => '123456',
+    'age' => 26,
+    'hobbies' => ['Play the Guitar', 'Play video games', 'Gym']
+];
+
+echo $user["name"];
+echo $user["password"];
+echo $user["hobbies"][0];
+
+
+//adding an element to the associative array
+$user["address"] = '123 main street';
+echo $user["address"];
+
+
+//removing an element from the associative array
+unset($user["address"]);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +47,12 @@ $output = null;
         <div class="bg-white rounded-lg shadow-md p-6 mt-6">
             <!-- Output -->
             <p class="text-xl"><?= $output ?></p>
+            <h2 class="text-xl font-semibold my-4">User Array:</h2>
+            <p>
+                <pre>
+                    <?php print_r($user) ?>
+                </pre>
+            </p>
         </div>
     </div>
 </body>

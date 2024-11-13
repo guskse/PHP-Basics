@@ -3,7 +3,6 @@
 //this is a php single line comment
 
 /* this is a multiple line comment in php
-ok?
 */
 
 $title = 'Learn php from scratch with a variable';
