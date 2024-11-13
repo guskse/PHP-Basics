@@ -22,6 +22,13 @@
 */
 echo '<h3>Multiplication Table</h3>';
 
+for ($i = 1; $i <= 10; $i++) {
+  for ($j = 1; $j <= 10; $j++) {
+    echo $i . " x " . $j . " = " . $i * $j . "<br />";
+  }
+}
+
+
 /*
   Challenge 2: Get the sum of the numbers in an array by using a foreach loop. For bonus points, also use a for loop.
 */
@@ -30,14 +37,56 @@ echo '<h3>Array Sum</h3>';
 
 $numbers = [1, 2, 3, 4, 5];
 
+$sum = 0;
+foreach ($numbers as $num) {
+  $sum += $num;
+};
+
+echo $sum;
+
+echo "<br />";
+
+//with for loop
+$sum2 = 0;
+for ($i = 0; $i < count($numbers); $i++) {
+  $sum2 += $numbers[$i];
+}
+
+echo $sum2;
+
+echo "<br />";
+
+
 /*
   Challenge 3: Calculate the average students grade from an array of students. Each student has their own array with the key 'grades'. 
 
-  	1. Create an array of students with their names and grades (0 - 100)
+  1.Create an array of students with their names and grades (0 - 100)
 	2. Iterate over the students array with a foreach loop
 	3. Calculate the average grade for each student
 */
 
 echo '<h3>Average Grade</h3>';
 
+$students = [
+  [
+    'name' => 'John',
+    'grades' => [85, 90, 92, 88]
+  ],
+  [
+    'name' => 'Jane',
+    'grades' => [75, 100, 72, 83]
+  ],
+  [
+    'name' => 'Joe',
+    'grades' => [56, 67, 60, 100]
+  ],
+];
 
+foreach ($students as $student) {
+  $name = $student['name'];
+  $grades = $student['grades'];
+
+  //calculate the avg
+  $average = array_sum($grades) / count($grades);
+  echo "{$name}: Average grade = {$average} <br />";
+}
