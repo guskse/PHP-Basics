@@ -1,6 +1,44 @@
 <?php
 $output = null;
+$string = 'Hello world';
+
+
+//BUILT IN STRING FUNCTIONS IN PHP
+
+//strlen -> return length of string
+$output = strlen($string);
+
+//str_word_count -> gives word count
+$output = str_word_count($string);
+
+
+//strpos -> gives position of where the word starts
+$output = strpos($string, "world");
+
+//get specific character by index
+$output = $string[4];
+
+//substr -> gets the strings in the between positions passed (beginning and end)
+$output = substr($string, 6, 5); //will get strings between 6 index of string and 5 characters
+
+//str_replace -> replace string with the one passed
+$output = str_replace('World','Universe', $string);
+
+//strtolower -> turns string to lowercase
+$output = strtolower($string);  //hello world
+
+//strtoupper -> turns string to uppercase
+$output = strtoupper($string); //HELLO WORLD
+
+//ucwords -> turns only the first letter of the words to uppercase
+$output = ucwords($string); //Hello World
+
+//trim -> takes the empty space out before and after words
+$output = trim("    trimming    ")
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
