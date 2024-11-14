@@ -52,7 +52,34 @@ function highlightTags($tags, $searchTerm)
   $tagsArray = implode(', ', $tags);
   return str_replace($searchTerm, "<span class='bg-yellow-200'>$searchTerm</span>", $tagsArray);
 }
+
+
+//FUNCTION TO CALCULATE AVG SALARY
+function calculateSalary($jobListings)
+{
+  $totalSalary = 0;
+  $count = count($jobListings);
+
+  foreach ($jobListings as $job) {
+    $totalSalary += $job["salary"];
+  }
+
+  $averageSalary = ($count > 0) ?  $totalSalary / $count : 0;
+  return formatSalary($averageSalary);
+}
+
+//ANOTHER WAY TO CALCULATE THE AVG SALARY
+function calculateSalary2($jobListings)
+{
+  $salaries = array_column($jobListings, 'salary');
+  $totalSalary = array_sum($salaries);
+  $count = count($salaries);
+  $avgSalary = $totalSalary / $count;
+  return formatSalary($avgSalary);
+}
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -73,7 +100,7 @@ function highlightTags($tags, $searchTerm)
   </header>
   <div class="container mx-auto p-4 mt-4">
     <div class="bg-green-100 rounded-lg shadow-md p-6 my-6">
-      <h2 class="text-2xl font-semibold mb-4">Average Salary:</h2>
+      <h2 class="text-2xl font-semibold mb-4">Average Salary: <?= calculateSalary2($listings) ?></h2>
     </div>
     <!-- Output -->
     <?php foreach ($listings as $index => $job) : ?>

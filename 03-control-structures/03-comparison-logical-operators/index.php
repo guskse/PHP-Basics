@@ -16,6 +16,23 @@
 */
 
 
+// $x = 10;
+// $y = '10';
+
+
+// var_dump($x == $y);     //true
+// var_dump($x === $y);    //false
+
+// var_dump($x != $y);       //false
+// var_dump($x !== $y);      //true
+// var_dump($x <> $y);       //false
+
+// ... etc etc
+
+
+
+
+
 /*
 | Logical Operators
 | Operator | Description            |
@@ -27,3 +44,17 @@
 | xor      | True if one is true    |
 | !        | True if it is not true |
 */
+
+$a = 10;
+$b = 20;
+
+// var_dump($a == 10 && $b == 20);
+// var_dump($a == 10 and $b == 20);
+
+// var_dump($a == 10 || $b == 20);
+// var_dump($a == 10 or $b == 20);
+
+// var_dump(!($a == 100));
+
+
+?>
