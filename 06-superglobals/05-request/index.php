@@ -1,3 +1,11 @@
+<?php
+//avoid using $_REQUEST, use $_POST or $_GET instead!!.
+
+// http://localhost/php-basics/06-superglobals/05-request/?name=brad
+echo $_REQUEST['name'] ?? "";  //brad
+?>
+
+
 <form method="post">
   <div>
     <label for="name">Name:</label>

@@ -1,11 +1,55 @@
 <?php
 $title = '';
 $description = '';
-$submitted = false; 
+$submitted = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   $title = htmlspecialchars($_POST['title'] ?? '');
   $description = htmlspecialchars($_POST['description'] ?? '');
+
+
+  //will show all the file data in array format
+  // var_dump($_FILES);
+
+  //only get specific data from the file submitted
+  // echo $_FILES['logo']['name'];
+
+  //'logo' is the name of the form field that submits the file.
+
+
+  $file = $_FILES['logo'];  //all the info from the file submitted 
+
+  //check if there is no error in the file submitted
+  if ($file['error'] === UPLOAD_ERR_OK) {
+    //specify where to upload the file
+    $uploadDir = 'uploads/';
+
+
+    //check and create directory if it isnt already created
+    if (!is_dir($uploadDir)) {
+      mkdir($uploadDir, 0755, true);
+    }
+
+    //create unique file name
+    $filename = uniqid() . '-' . $file['name'];
+
+    //Check file type
+    $allowedExtensions = ['jpg', 'jpeg', 'png'];
+    $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+    //if file extension is allowed, upload the file.
+    if (in_array($fileExtension, $allowedExtensions)) {
+      //upload file
+      if (move_uploaded_file($file['tmp_name'], $uploadDir . $filename)) {
+        echo 'File Uploaded';
+      } else {
+        echo 'File Upload Error: ' . $file['error'];
+      }
+    } else {
+      echo "Error: Invalid File Type.";
+    }
+  }
+
 
   $submitted = true;
 }

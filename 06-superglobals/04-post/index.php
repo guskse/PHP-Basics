@@ -1,3 +1,16 @@
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+  //will show all the data from the form in array format
+
+  //check for scripting in request, avoid hackers code entering the form using htmlspecialchars
+  $title = htmlspecialchars($_POST['title']) ?? "";
+  $description = htmlspecialchars($_POST['description']) ?? "";
+  echo $title, $description;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +43,19 @@
       </form>
 
       <!-- Display submitted data -->
+      <div class="mt-6 p-4 border rounded bg-gray-200">
+        <h2 class="text-lg font-semibold">Submitted Job Listing:</h2>
+        <p>
+          <strong>Title:</strong>
+          <?= $title ?>
+        </p>
+        <p>
+          <strong>Description:</strong>
+          <?= $description ?>
+        </p>
+      </div>
+
+
     </div>
   </div>
 </body>

@@ -1,3 +1,11 @@
+<?php
+//the parameters for the setcookie function: name, value, expiration, and path
+//set cookie
+setcookie('username', 'gus', time() + 3600, '/');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

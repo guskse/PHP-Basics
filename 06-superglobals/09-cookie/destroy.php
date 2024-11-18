@@ -1,3 +1,12 @@
+<?php
+
+//set the cookie to empty string, and expiration to a negative number
+//it will destroy the cookie.
+
+setcookie('username', "", time() - 3600, '/');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
