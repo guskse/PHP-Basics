@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   $body = htmlspecialchars($_POST['body'] ?? '');
 
   // INSERT statement with placeholders for title and body
-  $sql = 'INSERT INTO posts (title, body) VALUES (:title, :body)';
+  $sql = 'INSERT INTO post (title, body) VALUES (:title, :body)';
 
   // Prepare the statement
   $stmt = $pdo->prepare($sql);

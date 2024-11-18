@@ -2,7 +2,7 @@
 require_once 'database.php';
 
 // Prepare a SELECT statement
-$stmt = $pdo->prepare('SELECT * FROM posts');
+$stmt = $pdo->prepare('SELECT * FROM post');
 
 // Execute the statement
 $stmt->execute();
@@ -11,6 +11,7 @@ $stmt->execute();
 $posts = $stmt->fetchAll();
 
 // var_dump($posts);
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +35,8 @@ $posts = $stmt->fetchAll();
       <div class="md my-4">
         <div class="rounded-lg shadow-md">
           <div class="p-4">
-            <h2 class="text-xl font-semibold"><?= $post['title']; ?></h2>
-            <p class="text-gray-700 text-lg mt-2"><?= $post['body']; ?></p>
+            <h2 class="text-xl font-semibold"><a href="post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h2>
+            <p class=" text-gray-700 text-lg mt-2"><?= $post['body']; ?></p>
           </div>
         </div>
       </div>

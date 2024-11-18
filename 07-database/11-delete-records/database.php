@@ -3,9 +3,9 @@
 // Database configuration
 $host = 'localhost';
 $port = 3306;
-$dbName = 'blog';
+$dbName = 'blog2';
 $username = 'root';
-$password = '';
+$password = '013527';
 
 // Connection string (DSN)
 $dsn = "mysql:host={$host};port={$port};dbname={$dbName};charset=utf8";
@@ -20,3 +20,5 @@ try {
   // If there is an error with the connection, catch it here
   echo "Connection failed: " . $e->getMessage();
 }
+
+?>

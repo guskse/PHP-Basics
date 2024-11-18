@@ -1,3 +1,35 @@
+<?php
+require 'database.php';
+
+//check if its a post request
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+
+  //get the data that is being passed in the form
+  //htmlspecialchars will make it impossible to pass code through the form inputs
+  $title = htmlspecialchars($_POST['title']);
+  $body = htmlspecialchars($_POST['body']);
+
+
+  //create a sql query
+  $sql = 'INSERT INTO post (title, body) VALUES (:title, :body)';  //:title and :body are placeholders
+
+  $stmt = $pdo->prepare($sql);
+
+  //will substitute the placeholders with actual values from the retrieved data from form
+  $params = [
+    'title' => $title,
+    'body' => $body
+  ];
+
+  //execute the query
+  $stmt->execute($params);
+
+  //redirect to index page.
+  header('Location: index.php');
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

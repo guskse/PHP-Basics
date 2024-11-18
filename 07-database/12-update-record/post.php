@@ -11,7 +11,7 @@ if (!$id) {
 }
 
 // SELECT statement with placeholder for id
-$sql = 'SELECT * FROM posts WHERE id = :id';
+$sql = 'SELECT * FROM post WHERE id = :id';
 
 // Prepare the SELECT statement
 $stmt = $pdo->prepare($sql);
@@ -51,11 +51,18 @@ $post = $stmt->fetch();
           <a href="index.php">Go Back</a>
         </div>
       </div>
+
+      <!--EDIT BUTTON-->
+      <a href="edit.php?id=<?= $post['id']; ?>" class="text-xl bg-green-500 text-white px-4 py-2 mb-4 rounded hover:bg-green-600 focus:outline-none">Edit</a>
+
+
+      <!--DELETE BUTTON FORM -->
       <form action="delete.php" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="hidden" name="id" value="<?= $post['id'] ?>">
-        <button type="submit" name="submit" class="text-xl bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none">Delete</button>
+        <button type="submit" name="submit" class="text-xl bg-red-500 text-white px-4  mt-4 py-2 rounded hover:bg-red-600 focus:outline-none w-64">Delete</button>
       </form>
+      
     </div>
   </div>
 </body>

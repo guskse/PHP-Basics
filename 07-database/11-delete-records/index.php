@@ -2,7 +2,7 @@
 require_once 'database.php';
 
 // Prepare a SELECT statement
-$stmt = $pdo->prepare('SELECT * FROM posts');
+$stmt = $pdo->prepare('SELECT * FROM post');
 
 // Execute the statement
 $stmt->execute();

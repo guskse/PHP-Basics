@@ -7,7 +7,7 @@ $isDeleteRequest = ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['_method'] 
 if ($isDeleteRequest) {
   $id = $_POST['id'];
 
-  $sql = 'DELETE FROM posts WHERE id = :id';
+  $sql = 'DELETE FROM post WHERE id = :id';
 
   $stmt = $pdo->prepare($sql);
 

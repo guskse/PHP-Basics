@@ -11,7 +11,7 @@ if (!$id) {
 }
 
 // SELECT statement with placeholder for id
-$sql = 'SELECT * FROM posts WHERE id = :id';
+$sql = 'SELECT * FROM post WHERE id = :id';
 
 // Prepare the SELECT statement
 $stmt = $pdo->prepare($sql);

@@ -2,7 +2,7 @@
 require_once 'database.php';
 
 // Prepare a SELECT statement
-$stmt = $pdo->prepare('SELECT * FROM posts');
+$stmt = $pdo->prepare('SELECT * FROM post');
 
 // Execute the statement
 $stmt->execute();
@@ -10,7 +10,7 @@ $stmt->execute();
 // Fetch the results
 $posts = $stmt->fetchAll();
 
-// var_dump($posts);
+// var_dump($post);
 ?>
 
 <!DOCTYPE html>

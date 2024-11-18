@@ -1,7 +1,7 @@
 <?php
 require_once 'database.php';
 
-// Get id from query string
+// Get id from req query param
 $id = $_GET['id'] ?? null;
 
 // If id is null, redirect to index.php
@@ -11,7 +11,7 @@ if (!$id) {
 }
 
 // SELECT statement with placeholder for id
-$sql = 'SELECT * FROM posts WHERE id = :id';
+$sql = 'SELECT * FROM post WHERE id = :id';
 
 // Prepare the SELECT statement
 $stmt = $pdo->prepare($sql);
@@ -51,6 +51,14 @@ $post = $stmt->fetch();
           <a href="index.php">Go Back</a>
         </div>
       </div>
+
+      <!-- DELETE FORM -->
+      <form action="delete.php" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" value="<?= $post['id'] ?>">
+        <button type="submit" name="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none">Delete</button>
+      </form>
+
     </div>
   </div>
 </body>
